@@ -1,4 +1,4 @@
-name: CI Pipeline
+name: CI/CD Pipeline
 
 on:
   push:
@@ -23,3 +23,11 @@ jobs:
 
       - name: Run Testing
         run: echo "Testing berhasil"
+
+  deploy-staging:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to Staging
+        run: echo "Deployment ke staging berhasil"
